@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Weather</title>
+</head>
+
+<body>
+    <div class="container">
+        <form method="POST">
+            {%csrf_token%}
+            <div>
+                <p>City:</p><span><input type="text" name="name" id=""></span>
+                <button>Add City</button>
+            </div>
+        </form>
+        {% for weather in weather_data%}
+        <div>
+            <div>
+                <figure>
+                    <img src="http://openweathermap.org/img/w/{{weather.icon}}.png" alt="Image"></figure>
+            </div>
+            <div>
+                <p>{{weather.city}}</p>
+                <p>{{weather.temperature}}</p>
+                <p>{{weather.description}}</p>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+</body>
+
+</html>
